@@ -11,6 +11,7 @@ const (
 	// RSA default E
 	RSADefaultExponent = 65537
 )
+
 // RSAPublicKeyFromBytes create *rsa.PublicKey from n bytes. if e zero use 65537
 func RSAPublicKeyFromBytes(n []byte, e int) *rsa.PublicKey {
 	if e == 0 {

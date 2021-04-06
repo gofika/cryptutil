@@ -9,16 +9,16 @@ import (
 type DESKey [8]byte
 type DES struct {
 	key DESKey
-	b cipher.Block
-	iv []byte
+	b   cipher.Block
+	iv  []byte
 }
 
 func NewDES(key DESKey) *DES {
 	b, _ := des.NewCipher(key[:])
 	return &DES{
 		key: key,
-		b: b,
-		iv: key[:des.BlockSize],
+		b:   b,
+		iv:  key[:des.BlockSize],
 	}
 }
 
