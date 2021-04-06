@@ -1,6 +1,13 @@
 package cryptutil
 
-import "crypto/rand"
+import (
+	"math/rand"
+	"time"
+)
+
+func init() {
+	rand.Seed(time.Now().UTC().UnixNano())
+}
 
 // GenerateAES128Key generate random AES128Key
 func GenerateAES128Key() (ret AES128Key) {
