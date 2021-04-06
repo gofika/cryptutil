@@ -1,6 +1,7 @@
 package cryptutil
 
 import (
+	"bytes"
 	"crypto/aes"
 	"crypto/cipher"
 	"fmt"
@@ -14,6 +15,39 @@ type AES struct {
 	key []byte
 	iv  []byte
 	b   cipher.Block
+}
+
+func (k AES256Key) String() string {
+	buf := bytes.NewBufferString("")
+	for i, b := range k {
+		if i > 0 {
+			buf.WriteString(",")
+		}
+		buf.WriteString(fmt.Sprintf("0x%x", b))
+	}
+	return buf.String()
+}
+
+func (k AES128Key) String() string {
+	buf := bytes.NewBufferString("")
+	for i, b := range k {
+		if i > 0 {
+			buf.WriteString(",")
+		}
+		buf.WriteString(fmt.Sprintf("0x%x", b))
+	}
+	return buf.String()
+}
+
+func (k AES192Key) String() string {
+	buf := bytes.NewBufferString("")
+	for i, b := range k {
+		if i > 0 {
+			buf.WriteString(",")
+		}
+		buf.WriteString(fmt.Sprintf("0x%x", b))
+	}
+	return buf.String()
 }
 
 func newAES(key []byte) *AES {

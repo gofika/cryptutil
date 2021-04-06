@@ -1,12 +1,25 @@
 package cryptutil
 
 import (
+	"bytes"
 	"crypto/cipher"
 	"crypto/des"
 	"fmt"
 )
 
 type DESKey [8]byte
+
+func (k DESKey) String() string {
+	buf := bytes.NewBufferString("")
+	for i, b := range k {
+		if i > 0 {
+			buf.WriteString(",")
+		}
+		buf.WriteString(fmt.Sprintf("0x%x", b))
+	}
+	return buf.String()
+}
+
 type DES struct {
 	key DESKey
 	b   cipher.Block
