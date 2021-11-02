@@ -4,19 +4,25 @@ import (
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
-	. "gopkg.in/check.v1"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-func (s *CryptUtilSuite) TestRSA(c *C) {
+func TestRSA(t *testing.T) {
 	privyKey, err := rsa.GenerateKey(rand.Reader, 2048)
-	c.Assert(err, IsNil)
+	if !assert.Nil(t, err) {
+		return
+	}
 	pubKey := &privyKey.PublicKey
 	buf := x509.MarshalPKCS1PublicKey(pubKey)
 
 	key := RSAPublicKeyFromBytes(pubKey.N.Bytes(), 0)
-	c.Assert(pubKey.Equal(key), Equals, true)
+	assert.True(t, pubKey.Equal(key))
 
 	key, err = x509.ParsePKCS1PublicKey(buf)
-	c.Assert(err, IsNil)
-	c.Assert(pubKey.Equal(key), Equals, true)
+	if !assert.Nil(t, err) {
+		return
+	}
+	assert.True(t, pubKey.Equal(key))
 }
