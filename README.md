@@ -30,15 +30,15 @@ import (
 
 func main() {
   // your des key
-	key := cryptutil.DESKey{1, 2, 3, 4, 5, 6, 7, 8}
+  key := cryptutil.DESKey{1, 2, 3, 4, 5, 6, 7, 8}
 
-	des := cryptutil.NewDES(key)
-	content := "Foo"
+  des := cryptutil.NewDES(key)
+  content := "Foo"
   // CFB encrypt
-	encrypted := des.CFBEncrypt([]byte(content))
-	fmt.Println(encrypted)
+  encrypted := des.CFBEncrypt([]byte(content))
+  fmt.Println(encrypted)
   // CFG decrypt
-	decrypted := des.CFBDecrypt(encrypted)
-	fmt.Println(decrypted)
+  decrypted := des.CFBDecrypt(encrypted)
+  fmt.Println(decrypted)
 }
 ```
