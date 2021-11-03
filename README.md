@@ -2,7 +2,7 @@
 [![Build Status](https://github.com/gofika/cryptutil/workflows/build/badge.svg)](https://github.com/gofika/cryptutil)
 [![go.dev](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white)](https://pkg.go.dev/github.com/gofika/cryptutil)
 [![Go Report Card](https://goreportcard.com/badge/github.com/gofika/cryptutil)](https://goreportcard.com/report/github.com/gofika/cryptutil)
-[![Licenses](https://img.shields.io/github/license/gofira/cryptutil)](LICENSE)
+[![Licenses](https://img.shields.io/github/license/gofika/cryptutil)](LICENSE)
 
 # CryptUtil
 
